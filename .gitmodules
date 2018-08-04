@@ -1,0 +1,3 @@
+[submodule "awesome/lib/copycats"]
+	path = awesome/lib/copycats
+	url = git@github.com:lcpz/awesome-copycats.git
