@@ -115,7 +115,15 @@ if ! shopt -oq posix; then
   fi
 fi
 export TERM=xterm-256color
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+parse_git() {
+    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [[ $branch == "" ]]; then
+        return
+    fi
+    status=$(git status -s 2> /dev/null)
+    if [[ $status != "" ]]; then
+        status="*"
+    fi
+    echo "(${branch}${status})"
 }
-export PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[33m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!]\[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
+export PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[33m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!]\[\033[32m\]\w\[\033[33m\] \$(parse_git)\[\033[00m\]$ "
