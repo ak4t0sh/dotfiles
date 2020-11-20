@@ -7,6 +7,7 @@ alias myip.local="ip route get 1 |head -n 1|cut -d' ' -f7"
 alias myip.public='myip.public.4; myip.public.6'
 alias myip.public.4='dig +short -4 a myip.opendns.com @resolver1.opendns.com'
 alias myip.public.6='dig +short -6 aaaa myip.opendns.com @resolver1.opendns.com'
+alias dl='curl -kOs'
 
 # Date related
 alias now='d=$(now.date);t=$(now.time);echo $d $t'
