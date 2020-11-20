@@ -19,3 +19,6 @@ alias now.time='date +"%T"'
 alias strlen='_strlen () { echo -n "bytes : "; strlen.bytes $1; echo -n "chars : "; strlen.chars $1; }; _strlen'
 alias strlen.bytes='_strlencountbytes () { echo -n $1|wc -c; }; _strlencountbytes'
 alias strlen.chars='_strlencountchars () { echo -n $1|wc -m; }; _strlencountchars'
+
+# Moodle
+alias moodle.dl='_moodledl () { curl -Os "https://download.moodle.org/download.php/direct/stable$1/moodle-latest-$1.zip"; }; _moodledl'
