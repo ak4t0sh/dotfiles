@@ -1,4 +1,8 @@
 alias hg='history|grep $1'
+alias rs.day='redshift -x && redshift -O 3500'
+alias rs.night='redshift -x && redshift -O 2500'
+# System related
+alias sys.upgrade='sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt clean'
 
 # Network related
 alias digs='dig +short'
@@ -21,4 +25,4 @@ alias strlen.bytes='_strlencountbytes () { echo -n $1|wc -c; }; _strlencountbyte
 alias strlen.chars='_strlencountchars () { echo -n $1|wc -m; }; _strlencountchars'
 
 # Moodle
-alias moodle.dl='_moodledl () { curl -Os "https://download.moodle.org/download.php/direct/stable$1/moodle-latest-$1.zip"; }; _moodledl'
+alias moodle.dl='_moodledl () { curl -Os "https://packaging.moodle.org/stable$1/moodle-latest-$1.zip"; }; _moodledl'
